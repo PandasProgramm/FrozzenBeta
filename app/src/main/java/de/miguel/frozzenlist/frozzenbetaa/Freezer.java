@@ -6,7 +6,6 @@ import java.util.ArrayList;
     =============================================
     @author Miguel Gutierrez, project FrozzenList
     @version 1.0Beta
-    @param: model: Freezerobject
     =============================================
 
  */
@@ -19,7 +18,11 @@ public class Freezer {
     private ArrayList<Tray>trays;
 
 
-    //Instance
+       /**
+        * Creates a new Freezer Object
+        * @param name the name of the Freezer
+        * @param tray the Number of trays in the Freezer
+        */
     public Freezer(String name, int tray) {
         this.name = name;
         this.tray=tray;

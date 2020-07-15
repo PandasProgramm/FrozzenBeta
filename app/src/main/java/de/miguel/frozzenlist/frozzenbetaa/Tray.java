@@ -1,83 +1,94 @@
 package de.miguel.frozzenlist.frozzenbetaa;
 
+/*
+
+    @author Miguel Gutierrez
+    Tray
+ */
+
+
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Objects;
+
+/**  ===========================================================================
+    @author Miguel Gutierrez, project FrozzenList
+    @version 1.0Beta
+    @param: get Key producttype to add Product, remove Product , change Product,
+           producttype add manually: addProduct ,remove Product
+    @link Freezer
+    ===========================================================================
+     */
 
 public class Tray {
 
-    private int trayID;
-    private ArrayList<Product> productList= new ArrayList<Product>();
+ private HashMap<String, ArrayList<Product>> producttypes = new HashMap<>();
+    //Instance
+    public Tray() {
 
-    public Tray(int trayID, int userID,ArrayList<Product>productList) {
-        this.trayID = trayID;
-        this.productList=productList;
+        producttypes.put("Vegetables", new ArrayList<Product>());
+        producttypes.put("Beef", new ArrayList<Product>());         //Meat variety
+        producttypes.put("Pork", new ArrayList<Product>());
+        producttypes.put("Poultry", new ArrayList<Product>());
+        producttypes.put("Calf", new ArrayList<Product>());
+        producttypes.put("Lamb", new ArrayList<Product>());
+        producttypes.put("Vinison", new ArrayList<Product>());      //other typs
+        producttypes.put("Fruit", new ArrayList<Product>());
+        producttypes.put("Ice", new ArrayList<Product>());
+        producttypes.put("Sauces", new ArrayList<Product>());
+        producttypes.put("Meals", new ArrayList<Product>());
+        producttypes.put("other", new ArrayList<Product>());
     }
-    public void showTray() {
-        toStringForListInformation();
-    }
-    public void addProduct(ArrayList<Product>productList, Product product){
 
-        productList.add(product);
-    }
-    public void removeProduct(int input,ArrayList<Product>productlist) {
-        toStringForListInformation();
-        toStringQuestionWhichIndexRemove();
-        productlist.remove(input);
-    }
-    public int getTrayID() {
-        return trayID;
-    }
-    public void setTrayID(int trayID) {
-        this.trayID = trayID;
-    }
-    public ArrayList<Product> getProductList() {
-        return productList;
-    }
-    public void addProduct(String name,String typ,int productID) {
-        Product product =new Product();
-        product.setName(name);
-        product.setTyp(typ);
-        product.setProductID(productID);
-        productList.add(product);
-    }
-    public void removeProduct(int input) {
-        for(int i=0;i<productList.size();i++) {
-            while(input==i) {
-                productList.remove(i);
-            }toStringMessageOutOfBons();
+    protected void producttypeAdd(String value) {
+        if (producttypes.containsKey(value)) {
+            producttypes.put(value, new ArrayList<Product>());
         }
     }
-    public void changeProduct(int input,String name,String typ,int productID) {
-        for(int i=0;i<productList.size();i++) {
-            while(input==i) {
-                productList.get(i);
-                Product product =new Product();
-                product.setName(name);
-                product.setTyp(typ);
-                product.setProductID(productID);
-                productList.add(i, product);
+
+    public String getHashList(Product product) {
+        for (int i = 0; i < producttypes.size(); i++) {
+            return producttypes.toString();
+        }return null;
+    }
+    public void addProduct(Product product,String value){
 
 
-            }toStringMessageOutOfBons();
+        if (producttypes.containsKey(value)) {
+            producttypes.get(value).add(product);
+        }
+        else{
+            producttypeAdd(value);
+            addProduct(product,value);
         }
     }
+    public void removeProduct(String value, Product product) {
+        if(producttypes.containsKey(value)&&producttypes.equals(product)){
+            producttypes.get(value).remove(product);
+        }else {
+            //no product to remove
+        }
+    }
+    public void changeProduct(String value,Product product) {
+        if(producttypes.containsKey(value)&&producttypes.containsValue(product)) {
+            producttypes.get(value).remove(product);
+            producttypes.get(value).add(product);
+        }
+    }
+
+
 
     @Override
-    public String toString() {
-        return "Tray [trayID=" + trayID + ", productList=" + productList + "]";
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tray tray = (Tray) o;
+        return producttypes.equals(tray.producttypes);
     }
-    @SuppressWarnings("unused")
-    public String toStringForListInformation() {
-
-        for(int i=0;i<productList.size();i++) {
-
-            return "Listung des Faches: "+trayID+"\n "+productList.get(i);
-        }
-        return "Keine Liste vorhanden";
-    }
-    public static String toStringQuestionWhichIndexRemove() {
-        return "Welchen Index wollen Sie löschen?";
-    }
-    public static String toStringMessageOutOfBons() {
-        return "Falsche Eingabe. Deine Eingabe ist außerhalb der Indexreichweite!\nVersuche es nochmal";
+    @Override
+    public int hashCode() {
+        return Objects.hash(producttypes);
     }
 }

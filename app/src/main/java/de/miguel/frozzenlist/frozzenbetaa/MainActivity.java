@@ -10,6 +10,15 @@ import android.widget.EditText;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+   /**
+   =============================================================================================
+   @author Miguel Gutierrez, project FrozzenList
+   @version 1.0Beta
+   @param: set Loginscreen to insert frezzermanagment activity: Button for sign in and register.
+   @Link to FreezerManager, Register
+   =============================================================================================
+    */
+
 import static android.app.PendingIntent.getActivity;
 
 public class MainActivity extends Activity{
@@ -37,11 +46,6 @@ public class MainActivity extends Activity{
 
         // sign in condition
         btnSignIn.setOnClickListener(view-> signInClick());
-
-
-
-
-
     }
     void signInClick(){
         Log.d("MainActivity","test");
@@ -57,7 +61,6 @@ public class MainActivity extends Activity{
         }
         if(!userEmail.isEmpty()&&!passwort.isEmpty()) {
 
-
             UserManager userManager= new UserManager(this);
             User user= new User(passwort,userEmail);
             for(int i=0;i<userManager.userList.size();i++){
@@ -66,18 +69,13 @@ public class MainActivity extends Activity{
                 Log.d("MainActivity", compareUser.getUserName());
                 if(compareUser.getEmail().equals(user.getEmail())&&compareUser.getPasswort().equals(user.getPasswort())){
 
-                    Intent intent= new Intent(MainActivity.this, FreezerConfig.class);
-                    intent.putExtra("position",i);
+                    Intent intent= new Intent(MainActivity.this, FreezerManagment.class);
+                    intent.putExtra("position", i);
                     startActivity(intent);
                 }
-
-
             }
-
-
         }
     }
-
      //register button
         void registerClick(){
         Intent intent = new Intent(MainActivity.this,Register.class);

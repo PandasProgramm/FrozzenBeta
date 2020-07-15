@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Freezer"></activity>
-        <activity android:name=".FreezerConfig" />
+        <activity android:name=".FreezerManagment"></activity>
+        <activity android:name=".Freezer" />
         <activity android:name=".Register" />
         <activity android:name=".MainActivity">
             <intent-filter>

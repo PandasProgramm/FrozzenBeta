@@ -1,24 +1,31 @@
 package de.miguel.frozzenlist.frozzenbetaa;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
+        import androidx.annotation.RequiresApi;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+        import android.content.Intent;
+        import android.content.SharedPreferences;
+        import android.os.Build;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.EditText;
+        import android.widget.TextView;
 
-import java.net.UnknownServiceException;
-import java.util.ArrayList;
+        import java.net.UnknownServiceException;
+        import java.util.ArrayList;
+
+    /**
+    ==========================================================================================
+    @author Miguel Gutierrez, project FrozzenList
+    @version 1.0Beta
+    @param: register User: name,email,passwort(and to controlPasswort to ckeck passwortinput)
+           UserManager to save user data,
+    @link MainActivity(loginscreen)= intent
+    ==========================================================================================
+    */
 
 public class Register extends AppCompatActivity {
-
-
-
 
     Button regristryFinish;
     EditText inputName;
@@ -28,26 +35,20 @@ public class Register extends AppCompatActivity {
     User user;
     UserManager userManager;
 
-
-
-
-
-
-
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-       regristryFinish=(Button)findViewById(R.id.btnRegistry);
-       inputName= (EditText)findViewById(R.id.bntInputName);
-       inputEmail=(EditText)findViewById(R.id.bntInputEmail);
-       setPasswort=(EditText)findViewById(R.id.bntsetPasswort);
-       setControlPasswort=(EditText)findViewById(R.id.bntControlPasswort);
+        regristryFinish=(Button)findViewById(R.id.btnRegistry);
+        inputName= (EditText)findViewById(R.id.bntInputName);
+        inputEmail=(EditText)findViewById(R.id.bntInputEmail);
+        setPasswort=(EditText)findViewById(R.id.bntsetPasswort);
+        setControlPasswort=(EditText)findViewById(R.id.bntControlPasswort);
 
-       userManager= new UserManager(this);
-       regristryFinish.setOnClickListener(view-> onFinishClick());
+        userManager= new UserManager(this);
+        regristryFinish.setOnClickListener(view-> onFinishClick());
 
 
     }

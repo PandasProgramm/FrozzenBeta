@@ -1,71 +1,57 @@
 package de.miguel.frozzenlist.frozzenbetaa;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.util.Objects;
+
+   /**
+   =================================================================================================
+    @author Miguel Gutierrez, project FrozzenList
+    @version 1.0Beta
+    @param: Object initialize Product: Attributs: name,(variable)ProductID,FrozzenDate:Expirationdate
+           to set date memory.
+    @link Tray
+    ================================================================================================
+   */
+
 public class Product {
 
-
     private String name;
-    private int ProductID;
-    private String typ;
-    private int frozzenDate;
+    private DateFormat frozzenDate;
+    private double expirationDate;
 
+    //Instance
+    public Product(String name, DateFormat frozzenDate, double expirationDate) {
+        this.name = name;
+        this.frozzenDate = frozzenDate;
+        //frozzenDate=DateFormat.getDateInstance(DateFormat.LONG);
+        this.expirationDate=expirationDate;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
-
-    public int getProductID() {
-        return ProductID;
+    public void setExpirationDate(double expirationDate){
+        this.expirationDate=expirationDate;
     }
-
-    public void setProductID(int productID) {
-        ProductID = productID;
-    }
-
-    public String getTyp() {
-        return typ;
-    }
-
-    public void setTyp(String typ) {
-        this.typ = typ;
-    }
-
 
     @Override
     public String toString() {
-        return "Product [name=" + name + ", ProductID=" + ProductID + ", typ=" + typ + "]";
+        return "Product [name=" + name + ", ProductID="   +"]";
+    }
+    //option for database
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return  name.equals(product.name) &&
+                frozzenDate.equals(product.frozzenDate);
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ProductID;
-        result = prime * result + frozzenDate;
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((typ == null) ? 0 : typ.hashCode());
-        return result;
+        return Objects.hash(name,  frozzenDate);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Product other = (Product) obj;
-        if (ProductID != other.ProductID)
-            return false;
-        if (frozzenDate != other.frozzenDate)
-            return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        if (typ != other.typ)
-            return false;
-        return true;
-    }
 }

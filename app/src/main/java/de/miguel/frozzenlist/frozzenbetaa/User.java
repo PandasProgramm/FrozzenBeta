@@ -19,8 +19,6 @@ import java.util.ArrayList;
 public class User implements Serializable {
 
 
-    private static int NextIdent=0;
-    private int id;
     private String userName;
     private String passwort;
     private String email;

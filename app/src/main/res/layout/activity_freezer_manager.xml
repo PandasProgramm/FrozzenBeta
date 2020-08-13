@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="15dip"
+    android:padding="@dimen/freezer_linearLayout_padding"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/images"
@@ -15,16 +15,17 @@
     
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="@dimen/freezer_textView_layout_height"
         android:text="@string/hier_kannst_du_eine_neue_gefriertruhe_hinzuf_gen"
-        android:textSize="18sp"/>
+        android:textSize="@dimen/freezer_textView_layout_textSize"/>
 
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/name"
-        android:inputType="textPersonName"/>
+        android:inputType="textPersonName"
+        android:autofillHints="" />
 
 
     <EditText
@@ -32,7 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/anzahl_der_f_cher"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        android:autofillHints="" />
     
 
 
@@ -50,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="100"
-        android:layout_marginBottom="70dip"/>
+        android:layout_marginBottom="@dimen/freezer_recyclerview_marginBottom"/>
 
 
 

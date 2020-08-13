@@ -10,12 +10,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
-        android:layout_width="386dp"
+        android:layout_width="@dimen/activity_main_constraitlayout_widget_layout_width"
         android:layout_height="606dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginLeft="9dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginStart="@dimen/activity_main_constraitlayout_widget_layout_marginStart"
+        android:layout_marginTop="@dimen/activity_main_constraitlayout_widget_layout_marginTop"
+        android:layout_marginBottom="@dimen/activity_main_constraitlayout_widget_layout_marginBottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -25,39 +24,34 @@
 
         <Button
             android:id="@+id/bntRegister"
-            android:layout_width="327dp"
-            android:layout_height="77dp"
-            android:layout_marginStart="34dp"
-            android:layout_marginLeft="34dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginBottom="140dp"
+            android:layout_width="@dimen/activity_main_constraitlayout_widget_layout_registerButton_layout_width"
+            android:layout_height="@dimen/activity_main_constraitlayout_widget_layout_registerButton_layout_heigth"
+            android:layout_marginStart="@dimen/activity_main_constraitlayout_widget_layout_registerButton_layout_marginStart"
+            android:layout_marginEnd="@dimen/activity_main_constraitlayout_widget_layout_registerButton_layout_marginEnd"
+            android:layout_marginBottom="@dimen/activity_main_constraitlayout_widget_layout_registerButton_layout_marginBottom"
             android:text="@string/registrieren"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/bntSignIn"
-            android:layout_width="327dp"
-            android:layout_height="77dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginRight="28dp"
-            android:layout_marginBottom="12dp"
+            android:layout_width="@dimen/activity_main_constraitlayout_widget_layout_signInButton_layout_width"
+            android:layout_height="@dimen/activity_main_constraitlayout_widget_layout_signInButton_layout_heigth"
+            android:layout_marginEnd="@dimen/activity_main_constraitlayout_widget_layout_signInButton_layout_marginEnd"
+            android:layout_marginBottom="@dimen/activity_main_constraitlayout_widget_layout_signInButton_layout_marginBottom"
             android:text="@string/anmelden"
             app:layout_constraintBottom_toTopOf="@+id/bntRegister"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearLayout3"
-            android:layout_width="365dp"
-            android:layout_height="181dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_width="@dimen/activity_main_constraitlayout_widget_layout_editText_linearLayout_width"
+            android:layout_height="@dimen/activity_main_constraitlayout_widget_layout_editText_linearLayout_height"
+            android:layout_marginStart="@dimen/activity_main_constraitlayout_widget_layout_editText_linearLayout_marginStart"
+            android:layout_marginTop="@dimen/activity_main_constraitlayout_widget_layout_editText_linearLayout_marginTop"
+            android:layout_marginEnd="@dimen/activity_main_constraitlayout_widget_layout_editText_linearLayout_marginEnd"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -66,9 +60,9 @@
 
             <EditText
                 android:id="@+id/bntViewEmail"
-                android:layout_width="368dp"
-                android:layout_height="82dp"
-                android:layout_marginTop="5dp"
+                android:layout_width="@dimen/activity_main_constraitlayout_email_editText_layout_width"
+                android:layout_height="@dimen/activity_main_constraitlayout_email_editText_layout_heigth"
+                android:layout_marginTop="@dimen/activity_main_constraitlayout_email_editText_layout_marginTop"
                 android:autofillHints=""
                 android:background="@android:drawable/edit_text"
                 android:ems="10"
@@ -77,12 +71,12 @@
 
             <EditText
                 android:id="@+id/btnViewPasswort"
-                android:layout_width="369dp"
-                android:layout_height="86dp"
-                android:layout_marginTop="5dp"
+                android:layout_width="@dimen/activity_main_constraitlayout_passwort_editText_layout_width"
+                android:layout_height="@dimen/activity_main_constraitlayout_passwort_editText_layout_heigth"
+                android:layout_marginTop="@dimen/activity_main_constraitlayout_passwort_editText_layout_marginTop"
                 android:autofillHints=""
                 android:background="@android:drawable/edit_text"
-                android:ems="10"
+                android:ems="@dimen/activity_main_constraitlayout_passwort_editText_layout_ems"
                 android:hint="@string/hint_passwort"
                 android:inputType="textPassword" />
         </LinearLayout>
@@ -91,20 +85,21 @@
 
     <TextView
         android:id="@+id/logheadline"
-        android:layout_width="241dp"
-        android:layout_height="47dp"
+        android:layout_width="@dimen/activity_main_constraitlayout_editText_headline_layout_width"
+        android:layout_height="@dimen/activity_main_constraitlayout_editText_headline_layout_heigth"
         android:text="@string/einloggen"
         android:textColor="#0F100F"
-        android:textSize="36sp"
+        android:textSize="@dimen/activity_main_constraitlayout_editText_headline_layout_textSize"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="38dp" />
+        tools:layout_editor_absoluteY="@dimen/activity_main_constraitlayout_editText_headline_layout_editor"
+        tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
-        android:layout_width="392dp"
-        android:layout_height="86dp"
+        android:layout_width="@dimen/activity_main_constraitlayout_headline_width"
+        android:layout_height="@dimen/activity_main_constraitlayout_headline_height"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.32"

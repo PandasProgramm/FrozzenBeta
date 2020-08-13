@@ -1,10 +1,14 @@
 package de.miguel.frozzenlist.frozzenbetaa;
 
-import java.sql.Date;
-import java.text.DateFormat;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+import java.time.LocalDate;
 import java.util.Objects;
 
-   /**
+import static java.time.LocalDate.now;
+
+/**
    =================================================================================================
     @author Miguel Gutierrez, project FrozzenList
     @version 1.0Beta
@@ -17,25 +21,58 @@ import java.util.Objects;
 public class Product {
 
     private String name;
-    private DateFormat frozzenDate;
-    private double expirationDate;
+    private double amount;
+    private int pieces;
+    private int durability;
+    LocalDate frozzenDate;
+    LocalDate frozzenDateAfter;
+
 
     //Instance
-    public Product(String name, DateFormat frozzenDate, double expirationDate) {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public Product(String name, double amount, int pieces,  int durability) {
         this.name = name;
-        this.frozzenDate = frozzenDate;
-        //frozzenDate=DateFormat.getDateInstance(DateFormat.LONG);
-        this.expirationDate=expirationDate;
+        this.amount=amount;
+        this.pieces=pieces;
+        this.frozzenDate= now();
+        this.durability=durability;
+
+    }
+       public void setName(String name) {
+        this.name = name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setExpirationDate(double expirationDate){
-        this.expirationDate=expirationDate;
-    }
+       public String getName() {
+           return name;
+       }
+       public double getAmount() {
+           return amount;
+       }
+       public void setAmount(double amount) {
+           this.amount = amount;
+       }
+       public double getPieces() {
+           return pieces;
+       }
 
-    @Override
+       public void setPieces(int pieces) {
+           this.pieces = pieces;
+       }
+       public double amoutSum(){
+        return amount= amount*(double)pieces;
+       }
+       public void setDurability(){
+        this.durability=durability;
+       }
+       public int getDurability() {
+           return durability;
+       }
+       @RequiresApi(api = Build.VERSION_CODES.O)
+       public LocalDate setFrozzenDateAfter(){
+           frozzenDateAfter = frozzenDate.plusMonths(durability);
+           return frozzenDateAfter;
+       }
+       @Override
     public String toString() {
         return "Product [name=" + name + ", ProductID="   +"]";
     }
@@ -48,10 +85,8 @@ public class Product {
         return  name.equals(product.name) &&
                 frozzenDate.equals(product.frozzenDate);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(name,  frozzenDate);
     }
-
 }

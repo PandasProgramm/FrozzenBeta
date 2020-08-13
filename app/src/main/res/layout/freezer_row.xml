@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Miguel mag xml"
-        android:textSize="30dip"
+        android:textSize="@dimen/activity_freezer_row_layout_textView_textSize"
         android:textColor="#000000"
         android:gravity="center"/>
 

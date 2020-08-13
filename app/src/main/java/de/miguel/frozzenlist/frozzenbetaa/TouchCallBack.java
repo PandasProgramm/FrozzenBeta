@@ -37,7 +37,8 @@ public class TouchCallBack extends ItemTouchHelper.SimpleCallback {
     }
 
     @Override
-    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder,
+                          @NonNull RecyclerView.ViewHolder target) {
         Freezer freezer= userManager.userList.get(position).freezers.get(viewHolder.getAdapterPosition());
         int oldPosition= viewHolder.getAdapterPosition();
         int newPosition= target.getAdapterPosition();

@@ -1,6 +1,7 @@
 package de.miguel.frozzenlist.frozzenbetaa;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,15 +13,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 /**
+ * =================================================================================================
  * @author Miguel Gutierrez, FrozzenList Project
  * Creates RecyclerViewAdapter for drag and drop list to show datalsit
- * Creates Usermanager for sending Userdata to RecyclerViewAdapter for setting Touchcallback and sweapsiteattitude.
- * Adapter for putting Object into List
+ * Creates Usermanager for sending Userdata to RecyclerViewAdapter for setting Touchcallback and
+ * sweapsiteattitude. Adapter for putting Object into List
  * @param: positition: position from userlist to getUser in userList and to get position from Freezer
  * @param: freezer_row: cellrecyling for performance
  * @param: Adapter<ViewHolder> which viewHolder for use Adapter</ViewHolder>=>RecylerViewHolder
- *
+ * =================================================================================================
  *
  */
 
@@ -49,13 +53,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public RecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.freezer_row,parent,false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.freezer_row,
+                parent,false));
     }
 
     /**
      *
      * @param holder transfer attributs to View
-     * @param position attributs by freezer: need userManager for userinformation and freezerlist: call by position
+     * @param position attributs by freezer: need userManager for userinformation and freezerlist:
+     *                 call by position
      */
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapter.ViewHolder holder, int position) {
@@ -87,7 +93,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                   // Intent intent = new Intent()
+                   Intent intent = new Intent(view.getContext(),TrayManager.class);
+                   userManager.userList.get(position).freezers.get(getAdapterPosition());
+                    view.getContext().startActivity(intent);
                     //position user(position)&&position des Freezer(getAdapterPosition)
 
                 }

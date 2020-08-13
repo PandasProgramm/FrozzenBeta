@@ -19,7 +19,7 @@ import java.util.ArrayList;
    =============================================================================================
     */
 
-import static android.app.PendingIntent.getActivity;
+
 
 public class MainActivity extends Activity{
 
@@ -39,7 +39,6 @@ public class MainActivity extends Activity{
 
         btnRegister= (Button)findViewById(R.id.bntRegister);
         btnRegister.setOnClickListener(view -> registerClick());
-
         btnSignIn= (Button)findViewById(R.id.bntSignIn);
         inputEmail= (EditText)findViewById(R.id.bntViewEmail);
         inputPasswort= (EditText)findViewById(R.id.btnViewPasswort);
@@ -67,7 +66,8 @@ public class MainActivity extends Activity{
 
                 User compareUser= userManager.userList.get(i);
                 Log.d("MainActivity", compareUser.getUserName());
-                if(compareUser.getEmail().equals(user.getEmail())&&compareUser.getPasswort().equals(user.getPasswort())){
+                if(compareUser.getEmail().equals(user.getEmail())&&compareUser.getPasswort().
+                        equals(user.getPasswort())){
 
                     Intent intent= new Intent(MainActivity.this, FreezerManagment.class);
                     intent.putExtra("position", i);

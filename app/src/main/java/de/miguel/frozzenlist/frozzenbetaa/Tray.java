@@ -8,6 +8,8 @@ package de.miguel.frozzenlist.frozzenbetaa;
 
 
 
+import android.widget.Toast;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,8 +45,11 @@ public class Tray {
     }
 
     protected void producttypeAdd(String value) {
-        if (producttypes.containsKey(value)) {
+        if (!producttypes.containsKey(value)) {
             producttypes.put(value, new ArrayList<Product>());
+        }
+        else{
+            //Toast
         }
     }
 
@@ -68,7 +73,7 @@ public class Tray {
         if(producttypes.containsKey(value)&&producttypes.equals(product)){
             producttypes.get(value).remove(product);
         }else {
-            //no product to remove
+            //Toast: no product to remove
         }
     }
     public void changeProduct(String value,Product product) {
@@ -77,8 +82,6 @@ public class Tray {
             producttypes.get(value).add(product);
         }
     }
-
-
 
     @Override
     public boolean equals(Object o) {
